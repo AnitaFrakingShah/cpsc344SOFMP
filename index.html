@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script>
+      $(document).ready(function(){
+
+          $('.logos').hide();
+
+          $('.focus').focus(function(){
+              myFunction();
+          });
+
+          $('.focus').blur(function(){
+              $('.logos').hide();
+          });
+
+      });
+
+  </script>
 <style>
 * {
   box-sizing: border-box;
@@ -60,9 +78,9 @@ input:focus {
 </div>
 <h2 style="text-align: center; margin-top: 25%; margin-bottom: 50px; color: #6BBE19; font-size: 62px; font-family: Trebuchet MS; ">SAVE ON FOODS</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
+<input type="text" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
 
-<ul id="myUL" style="display: none;">
+<ul id="myUL" class="logos" style="display: none;">
   <li><a href="#">Cereal</a></li>
   <li><a href="#">Cheese</a></li>
   <li><a href="#">Coffee</a></li>
