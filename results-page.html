@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.css" >
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="./style.css" >
+
+  <script>
+      $(document).ready(function(){
+
+          $('.logos').hide();
+
+          $('.focus').focus(function(){
+              myFunction();
+          });
+
+          $('.focus').blur(function(){
+              $('.logos').hide();
+          });
+
+      });
+
+  </script>
+
+</head>
+<body>
+<div id="header" style = "width: 100%; display: inline-block;">
+  <h2 style="color: #6BBE19; display: inline-block; font-size: 24px; position: relative; top: -10px; font-family: Trebuchet MS; ">SAVE ON FOODS</h2>
+
+  <input type="text" style = "display: inline-block; margin-left: 30px;" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
+
+  <ul id="myUL" class="logos" style="display: inline-block;">
+    <li><a href="./results-page.html">Cereal</a></li>
+    <li><a href="#">Cheese</a></li>
+    <li><a href="#">Coffee</a></li>
+    <li><a href="#">Cookies</a></li>
+    <li><a href="#">Lettuce</a></li>
+    <li><a href="#">Kale</a></li>
+    <li><a href="#">Macaroni</a></li>
+    <li><a href="#">Milk</a></li>
+  </ul>
+
+</div>
+
+<div id="header" style = "width: 100px; display: inline-block; margin-left: 100%; position: absolute; left: -100px; top: 20px;">
+  <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
+  <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
+  <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/user"/>
+</div>
+
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+
+
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) == 0) {
+          if (filter != "") {
+              ul.style.display = "";
+            }
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+</script>
+
+
+<div class="container">
+  <h2>CEREAL</h2>
+    <div class="row">
+      <div class="col-md-12 heroSlider-fixed">
+        <div class="overlay">
+      </div>
+         <!-- Slider -->
+        <div class="slider responsive">
+          <div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+        </div>
+				 <!-- control arrows -->
+				<div class="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</div>
+				<div class="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				</div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+  $('.responsive').slick({
+    dots: true,
+  	prevArrow: $('.prev'),
+  	nextArrow: $('.next'),
+    infinite: false,
+    speed: 300,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+  </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
