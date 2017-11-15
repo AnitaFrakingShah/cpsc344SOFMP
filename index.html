@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('http://www.pvhc.net/img207/bydtkmqbpsmeqcgkgidx.png');
+  background-position: 7px 9px;
+  background-size: 25px;
+  background-repeat: no-repeat;
+  width: 80%;
+  position: relative;
+  left: -7px;
+  margin-left: 10%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  box-shadow: 2px 2px 1px #eeeeee;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  width: 80%;
+  position: relative;
+  top: -10px;
+  left: -7px;
+  margin-left: 10%;
+}
+input:focus {
+    outline:none;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+<div id="header" style = "width: 100px; display: inline-block; margin-left: 100%; position: relative; left: -100px;">
+  <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
+  <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
+  <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/user"/>
+</div>
+<h2 style="text-align: center; margin-top: 25%; margin-bottom: 50px; color: #6BBE19; font-size: 62px; font-family: Trebuchet MS; ">SAVE ON FOODS</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
+
+<ul id="myUL" style="display: none;">
+  <li><a href="#">Cereal</a></li>
+  <li><a href="#">Cheese</a></li>
+  <li><a href="#">Coffee</a></li>
+  <li><a href="#">Cookies</a></li>
+  <li><a href="#">Lettuce</a></li>
+  <li><a href="#">Kale</a></li>
+  <li><a href="#">Macaroni</a></li>
+  <li><a href="#">Milk</a></li>
+</ul>
+
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+
+
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) == 0) {
+        	if (filter != "") {
+            	ul.style.display = "";
+            }
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+</script>
+
+</body>
+</html>
