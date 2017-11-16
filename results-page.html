@@ -10,26 +10,30 @@
   <link rel="stylesheet" type="text/css" href="./style.css" >
 
   <script>
-      $(document).ready(function(){
+  $(document).ready(function(){
 
-          $('.logos').hide();
+      $('.logos').hide();
 
-          $('.focus').focus(function(){
-              myFunction();
-          });
-
-          $('.focus').blur(function(){
-              $('.logos').hide();
-          });
-
+      $('.focus').focus(function(){
+          myFunction();
       });
+
+      $("body").click(function(e){
+        if (e.target.id == 'myUL') {
+        }
+        else{
+          $('.logos').hide();
+        }
+      });
+
+  });
 
   </script>
 
 </head>
 <body>
 <div id="header" style = "width: 100%; display: inline-block;">
-  <h2 style="color: #6BBE19; display: inline-block; font-size: 24px; position: relative; top: -10px; font-family: Trebuchet MS; ">SAVE ON FOODS</h2>
+  <h2 style="color: #6BBE19; display: inline-block; font-size: 24px; margin-left: 15px; font-family: Trebuchet MS; ">SAVE ON FOODS</h2>
 
   <input type="text" style = "display: inline-block; margin-left: 30px;" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
 
@@ -86,14 +90,14 @@ function myFunction() {
       </div>
          <!-- Slider -->
         <div class="slider responsive">
-          <div>
-						<img src="http://placehold.it/200x150" alt="" />
+          <div class ="tab">
+						<img class="tablinks" onclick="openCity(event, 'London')" src="http://placehold.it/200x150" alt="" />
 					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
+					<div class ="tab">
+						<img class="tablinks" onclick="openCity(event, 'Paris')" src="http://placehold.it/200x150" alt="" />
 					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
+					<div class ="tab">
+						<img class="tablinks" onclick="openCity(event, 'Tokyo')" src="http://placehold.it/200x150" alt="" />
 					</div>
 					<div>
 						<img src="http://placehold.it/200x150" alt="" />
@@ -162,10 +166,39 @@ function myFunction() {
       // instead of a settings object
     ]
   });
+
+  function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+
+
   </script>
 
 
+  <div id="London" class="tabcontent">
+    <h3>London</h3>
+    <p>London is the capital city of England.</p>
+  </div>
 
+  <div id="Paris" class="tabcontent">
+    <h3>Paris</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+
+  <div id="Tokyo" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
 
 
 
