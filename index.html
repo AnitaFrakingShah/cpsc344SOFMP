@@ -111,12 +111,12 @@ function myFunction(e) {
         }
     }
     if (e.keyCode == 13) { // enter
-           if ($(".logos").css('display') == "") {
+        if ($(".logos").css('display') == "none") {
+          localStorage.setItem("item", $("#myInput").val());
+          window.location.href = "./results-page.html";
+        }
+        else {
                selectOption();
-           }
-           else{
-             localStorage.setItem("item", $("#myInput").val());
-             window.location.href = "./results-page.html";
            }
          }
 
@@ -144,11 +144,11 @@ function myFunction(e) {
     $(this).addClass("selected");
 }).click(function() {
     selectOption();
+    $('.focus').focus();
 });
    function selectOption() {
     $("#myInput").val($(".selected a").text());
     $(".logos").hide();
-    $('.focus').focus();
 }
 }
 </script>
