@@ -53,8 +53,12 @@ input:focus {
     outline:none;
 }
 
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
+#myUL a:hover {
+  cursor: pointer;
+}
+
+#myUL li.selected a {
+    background-color: #eee;
 }
 </style>
 </head>
@@ -71,19 +75,22 @@ input:focus {
 <input type="text" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
 
 <ul id="myUL" class="logos" style="display: none;">
-  <li><a href="./results-page.html">Cereal</a></li>
-  <li><a href="#">Cheese</a></li>
-  <li><a href="#">Coffee</a></li>
-  <li><a href="#">Cookies</a></li>
-  <li><a href="#">Lettuce</a></li>
-  <li><a href="#">Kale</a></li>
-  <li><a href="#">Macaroni</a></li>
-  <li><a href="#">Milk</a></li>
+  <li class="selected"><a>Cereal</a></li>
+  <li><a>Cheese</a></li>
+  <li><a>Coffee</a></li>
+  <li><a>Cookies</a></li>
+  <li><a>Lettuce</a></li>
+  <li><a>Kale</a></li>
+  <li><a >Macaroni</a></li>
+  <li><a >Milk</a></li>
 </ul>
 
 
 <script>
-function myFunction() {
+
+
+function myFunction(e) {
+    e = e || window.event;
     var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -94,7 +101,7 @@ function myFunction() {
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
         if (a.innerHTML.toUpperCase().indexOf(filter) == 0) {
-        	if (filter != "") {
+        	if (filter != "" && e.keyCode != 13) {
             	ul.style.display = "";
             }
             li[i].style.display = "";
@@ -103,6 +110,46 @@ function myFunction() {
 
         }
     }
+    if (e.keyCode == 13) { // enter
+           if ($(".logos").css('display') == "") {
+               selectOption();
+           }
+           else{
+             localStorage.setItem("item", $("#myInput").val());
+             window.location.href = "./results-page.html";
+           }
+         }
+
+    if (e.keyCode == 38) { // up
+          var selected = $(".selected");
+          $(".logos li").removeClass("selected");
+        if (selected.prev().length == 0) {
+            selected.siblings().last().addClass("selected");
+        } else {
+            selected.prev().addClass("selected");
+        }
+    }
+    if (e.keyCode == 40) { // down
+       var selected = $(".selected");
+       $(".logos li").removeClass("selected");
+       if (selected.next().length == 0) {
+           selected.siblings().first().addClass("selected");
+       } else {
+           selected.next().addClass("selected");
+       }
+   }
+
+   $(".logos li").mouseover(function() {
+    $(".logos li").removeClass("selected");
+    $(this).addClass("selected");
+}).click(function() {
+    selectOption();
+});
+   function selectOption() {
+    $("#myInput").val($(".selected a").text());
+    $(".logos").hide();
+    $('.focus').focus();
+}
 }
 </script>
 

@@ -27,7 +27,10 @@
       });
 
   });
-
+   function codeAddress() {
+     $("#title").html((localStorage.getItem("item")));
+}
+window.onload = codeAddress;
   </script>
 
 </head>
@@ -37,8 +40,8 @@
 
   <input type="text" style = "display: inline-block; margin-left: 30px;" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
 
-  <ul id="myUL" class="logos" style="display: inline-block;">
-    <li><a href="./results-page.html">Cereal</a></li>
+  <ul id="myUL" class="logos" style="display: none;">
+    <li><a href="#">Cereal</a></li>
     <li><a href="#">Cheese</a></li>
     <li><a href="#">Coffee</a></li>
     <li><a href="#">Cookies</a></li>
@@ -86,7 +89,7 @@ function myFunction() {
 
 
 <div class="container">
-  <h2>CEREAL</h2>
+  <h2 id="title"></h2>
     <div class="row">
       <div class="col-md-12 heroSlider-fixed">
         <div class="overlay">
@@ -189,18 +192,18 @@ function myFunction() {
 
 
   <div id="London" class="tabcontent">
-    <h3>London</h3>
-    <p>London is the capital city of England.</p>
+    <h3>Cereal A</h3>
+    <p>Honey Nut Cheerios that are nutritious and round and amazing!</p>
   </div>
 
   <div id="Paris" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
+    <h3>Cereal B</h3>
+    <p>Fruit Loops that are nutritious and round and amazing!</p>
   </div>
 
   <div id="Tokyo" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
+    <h3>Cereal C</h3>
+    <p>Honey Nut Combs that are nutritious and round and amazing!.</p>
   </div>
 
 
