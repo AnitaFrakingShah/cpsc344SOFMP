@@ -97,28 +97,28 @@ function myFunction() {
          <!-- Slider -->
         <div class="slider responsive">
           <div class ="tab">
-						<img class="tablinks" onclick="openCity(event, 'London')" src="http://placehold.it/200x150" alt="" />
+						<img class="tablinks" onclick="openCity(event, 'London')" style="width:200px; height:200px" src="https://i5.walmartimages.com/asr/213f841d-33a8-4a75-b38c-4cdd87e1f294_1.ea78ff1842dd2e93052564d377bd172e.jpeg" alt="" />
 					</div>
 					<div class ="tab">
-						<img class="tablinks" onclick="openCity(event, 'Paris')" src="http://placehold.it/200x150" alt="" />
+						<img class="tablinks" onclick="openCity(event, 'Paris')" style="width:150px; height:200px" src="https://i5.walmartimages.com/asr/13173ef0-40dd-4388-93a5-7daabc07fb0a_1.81e1ddc86b0327d3a32ad66d7eadbea7.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF" alt="" />
 					</div>
 					<div class ="tab">
-						<img class="tablinks" onclick="openCity(event, 'Tokyo')" src="http://placehold.it/200x150" alt="" />
+						<img class="tablinks" onclick="openCity(event, 'Tokyo')" style="width:100px; height:200px" src="http://deandairy.com/sites/default/files/styles/recipe_and_product_hero_600px_tall/public/product/hero/Milk_2%25_rf_gallon.png?itok=oHl3IT2q" alt="" />
 					</div>
 					<div>
-						<img src="http://placehold.it/200x150" alt="" />
+						<img style="width:130px; height:200px position: relative; left: -10px;" src="https://i5.walmartimages.ca/images/Large/190/850/190850.jpg?odnBound=460" alt="" />
 					</div>
 					<div>
-						<img src="http://placehold.it/200x150" alt="" />
+						<img style="width:125px; height:200px" src="https://islandfarms.com/wp-content/uploads/2012/03/IF_Milk_1Pct-1L.jpg" alt="" />
 					</div>
 					<div>
-						<img src="http://placehold.it/200x150" alt="" />
+						<img style="width:120px; height:200px" src="http://deandairy.com/sites/default/files/styles/recipe_and_product_hero_600px_tall/public/product/hero/Milk_1%25_pink_cap_gallon.png?itok=v2K3rBts" alt="" />
 					</div>
 					<div>
-						<img src="http://placehold.it/200x150" alt="" />
+						<img style="width:155px; height:220px" src="https://images-na.ssl-images-amazon.com/images/I/61RwtmzSIeL._SL1500_.jpg" alt="" />
 					</div>
 					<div>
-						<img src="http://placehold.it/200x150" alt="" />
+						<img style="width:160px; height:200px" src="https://target.scene7.com/is/image/Target/15331864_Alt04?wid=520&hei=520&fmt=pjpeg" alt="" />
 					</div>
         </div>
 				 <!-- control arrows -->
@@ -132,39 +132,57 @@ function myFunction() {
       </div>
     </div>
   </div>
+  <div class="filters" style="margin-left: 15%; display: inline-block;">
+      <button onclick="changeslide2()" id="test">2% Filter</button>
+      <button onclick="changeslide()" id="test">1% Filter</button>
+      <button onclick="changeslide4()" id="test">Whole Milk Filter</button>
+      <button onclick="changeslide3()" id="test">Low Fat Filter</button>
+  </div>
 
   <script>
+  function changeslide2() {
+$('.responsive').slick('slickGoTo', 0,"false");
+}
+function changeslide() {
+$('.responsive').slick('slickGoTo', 4,"false");
+}
+function changeslide3() {
+$('.responsive').slick('slickGoTo', 7,"false");
+}
+function changeslide4() {
+$('.responsive').slick('slickGoTo', 6,"false");
+}
 
   $('.responsive').slick({
-    dots: true,
+    dots: false,
   	prevArrow: $('.prev'),
   	nextArrow: $('.next'),
-    infinite: false,
+    infinite: true,
     speed: 300,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToScroll: 1,
           infinite: true,
-          dots: true
+          dots: false
         }
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3
+          slidesToScroll: 1
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToScroll: 1
         }
       }
       // You can unslick at a given breakpoint now by adding:
