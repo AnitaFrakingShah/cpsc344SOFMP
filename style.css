@@ -52,8 +52,12 @@ input:focus {
     outline:none;
 }
 
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
+#myUL a:hover {
+  cursor: pointer;
+}
+
+#myUL li.selected a {
+    background-color: #eee;
 }
 
 /* Custom Arrow */
