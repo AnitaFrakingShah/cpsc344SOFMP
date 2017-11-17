@@ -113,7 +113,11 @@ function myFunction(e) {
     if (e.keyCode == 13) { // enter
         if ($(".logos").css('display') == "none") {
           localStorage.setItem("item", $("#myInput").val());
-          window.location.href = "./results-page.html";
+          if ($("#myInput").val() == "red circular fruit") {
+            window.location.href = "./browsing.html";
+          } else {
+            window.location.href = "./results-page.html";
+          }
         }
         else {
                selectOption();
