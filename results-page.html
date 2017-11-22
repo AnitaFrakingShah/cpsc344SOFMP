@@ -41,20 +41,21 @@ window.onload = codeAddress;
   <input type="text" style = "display: inline-block; margin-left: 30px;" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
 
   <ul id="myUL" class="logos" style="display: none;">
-    <li class="selected"><a>Cereal</a></li>
-    <li><a>Cheese</a></li>
-    <li><a>Coffee</a></li>
-    <li><a>Cookies</a></li>
-    <li><a>Lettuce</a></li>
+    <li class="selected"><a>Apples</a></li>
+    <li><a>Cabbage</a></li>
+    <li><a>Cherries</a></li>
+    <li><a>Cucumbers</a></li>
+    <li><a>Grapes</a></li>
+    <li><a>Jalapeno Peppers</a></li>
     <li><a>Kale</a></li>
-    <li><a >Macaroni</a></li>
-    <li><a >Milk</a></li>
+    <li><a>Lettuce</a></li>
+    <li><a>Oranges</a></li>
   </ul>
 
 </div>
 
 <div id="header" style = "width: 150px; display: inline-block; margin-left: 100%; position: absolute; left: -120px; top: 5px;">
-    <p style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
+    <p id="added_items" style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
     <img width="25px;" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
     <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
     <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
@@ -88,7 +89,11 @@ function myFunction(e) {
     if (e.keyCode == 13) { // enter
         if ($(".logos").css('display') == "none") {
           localStorage.setItem("item", $("#myInput").val());
-          window.location.href = "./results-page.html";
+          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
+            window.location.href = "./browsing.html";
+          } else {
+            window.location.href = "./results-page.html";
+          }
         }
         else {
                selectOption();
@@ -131,36 +136,74 @@ function myFunction(e) {
 
 <div class="container">
   <h2 id="title"></h2>
+  <div class="filters" style="margin-left: 15%; display: inline-block;">
+      <h3>Sort:</h3>
+      <button onclick="sortslides()" id="test">By Price: Low to Max</button>
+  </div>
+
+
     <div class="row">
       <div class="col-md-12 heroSlider-fixed">
         <div class="overlay">
       </div>
          <!-- Slider -->
         <div class="slider responsive">
-          <div class ="tab">
-						<img class="tablinks" onclick="openCity(event, 'London')" style="width:200px; height:200px" src="https://i5.walmartimages.com/asr/213f841d-33a8-4a75-b38c-4cdd87e1f294_1.ea78ff1842dd2e93052564d377bd172e.jpeg" alt="" />
-					</div>
-					<div class ="tab">
-						<img class="tablinks" onclick="openCity(event, 'Paris')" style="width:150px; height:200px" src="https://i5.walmartimages.com/asr/13173ef0-40dd-4388-93a5-7daabc07fb0a_1.81e1ddc86b0327d3a32ad66d7eadbea7.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF" alt="" />
-					</div>
-					<div class ="tab">
-						<img class="tablinks" onclick="openCity(event, 'Tokyo')" style="width:100px; height:200px" src="http://deandairy.com/sites/default/files/styles/recipe_and_product_hero_600px_tall/public/product/hero/Milk_2%25_rf_gallon.png?itok=oHl3IT2q" alt="" />
-					</div>
-					<div>
-						<img style="width:130px; height:200px position: relative; left: -10px;" src="https://i5.walmartimages.ca/images/Large/190/850/190850.jpg?odnBound=460" alt="" />
-					</div>
-					<div>
-						<img style="width:125px; height:200px" src="https://islandfarms.com/wp-content/uploads/2012/03/IF_Milk_1Pct-1L.jpg" alt="" />
-					</div>
-					<div>
-						<img style="width:120px; height:200px" src="http://deandairy.com/sites/default/files/styles/recipe_and_product_hero_600px_tall/public/product/hero/Milk_1%25_pink_cap_gallon.png?itok=v2K3rBts" alt="" />
-					</div>
-					<div>
-						<img style="width:155px; height:220px" src="https://images-na.ssl-images-amazon.com/images/I/61RwtmzSIeL._SL1500_.jpg" alt="" />
-					</div>
-					<div>
-						<img style="width:160px; height:200px" src="https://target.scene7.com/is/image/Target/15331864_Alt04?wid=520&hei=520&fmt=pjpeg" alt="" />
-					</div>
+          <div class ="tab product-card" data-percentage="2.99">
+						<img class="tablinks" onclick="openCity(event, 'London')" style="width:200px; height:200px" src="http://www.fruitionseeds.com//v/vspfiles/photos/TRANS-36-2T.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Orange Habanero</p>
+              <p class="priceheader">2.99</p>
+            </div>
+          </div>
+					<div class ="tab product-card" data-percentage="1.99">
+						<img class="tablinks" onclick="openCity(event, 'Paris')" style="width:150px; height:200px" src="https://images-na.ssl-images-amazon.com/images/I/41zTACiFSAL._SY355_.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Red Habanero</p>
+              <p class="priceheader">1.99</p>
+            </div>
+          </div>
+					<div class ="tab product-card" data-percentage="1.50">
+						<img class="tablinks" onclick="openCity(event, 'Tokyo')" style="width:100px; height:200px" src="http://gephardtdaily.com/wp-content/uploads/2015/08/Hot-Peppers-01.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Red Chillies</p>
+              <p class="priceheader">1.50</p>
+            </div>
+          </div>
+					<div data-percentage="2.50">
+						<img class="tablinks" onclick="openCity(event, 'MilkB')"style="width:130px; height:200px" src="http://pezzano.com.au/wp-content/uploads/2015/08/green-chillies.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Green Chillies</p>
+              <p class="priceheader">2.50</p>
+            </div>
+          </div>
+					<div class ="tab product-card" data-percentage="8.50">
+						<img class="tablinks"  style="width:125px; height:200px" src="https://www.chilliwizards.co.uk/ekmps/shops/markdean/images/scotch-bonnet-red-10-x-seeds-1303-p.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Organic Scotch Bonnet</p>
+              <p class="priceheader">8.50</p>
+            </div>
+          </div>
+					<div class ="tab product-card" data-percentage="7.50">
+						<img class="tablinks" style="width:120px; height:200px" src="http://img-aws.ehowcdn.com/350x235p/photos.demandstudios.com/getty/article/117/208/87714824_XS.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Jalapenos</p>
+              <p class="priceheader">7.50</p>
+            </div>
+          </div>
+					<div class ="tab product-card" data-percentage="2.50">
+						<img class="tablinks" style="width:155px; height:220px" src="https://durablehealth.net/wp-content/uploads/2014/07/Orange-Bell-Pepper-Nutrition-Facts-Health-Benefits-Recipes-pick.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Orange Bell</p>
+              <p class="priceheader">2.50</p>
+            </div>
+          </div>
+					<div class ="tab product-card" data-percentage="1.00">
+						<img class="tablinks" style="width:160px; height:200px" src="https://www.motherearthnews.com/-/media/Images/MEN/Editorial/Articles/Magazine-Articles/2002/08-01/Preserving-Red-Bell-Peppers-for-Winter/sweet-red-winter-peppers-jpg.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Red Bell</p>
+              <p class="priceheader">1.00</p>
+            </div>
+          </div>
         </div>
 				 <!-- control arrows -->
 				<div class="prev">
@@ -174,23 +217,27 @@ function myFunction(e) {
     </div>
   </div>
   <div class="filters" style="margin-left: 15%; display: inline-block;">
-      <button onclick="changeslide2()" id="test">2% Filter</button>
-      <button onclick="changeslide()" id="test">1% Filter</button>
-      <button onclick="changeslide4()" id="test">Whole Milk Filter</button>
-      <button onclick="changeslide3()" id="test">Low Fat Filter</button>
+      <button onclick="changeslide()" id="test">Habanero</button>
+      <button onclick="changeslide2()" id="test">Chillies</button>
+      <button onclick="changeslide4()" id="test">Scotch Bonnet</button>
+      <button onclick="changeslide3()" id="test">Jalapeno</button>
+      <button onclick="changeslide5()" id="test">Bell</button>
   </div>
 
   <script>
   function changeslide2() {
-$('.responsive').slick('slickGoTo', 0,"false");
+$('.responsive').slick('slickGoTo', 2,"false");
 }
 function changeslide() {
-$('.responsive').slick('slickGoTo', 4,"false");
+$('.responsive').slick('slickGoTo', 0,"false");
 }
 function changeslide3() {
-$('.responsive').slick('slickGoTo', 7,"false");
+$('.responsive').slick('slickGoTo', 5,"false");
 }
 function changeslide4() {
+$('.responsive').slick('slickGoTo', 4,"false");
+}
+function changeslide5() {
 $('.responsive').slick('slickGoTo', 6,"false");
 }
 
@@ -246,23 +293,41 @@ $('.responsive').slick('slickGoTo', 6,"false");
       evt.currentTarget.className += " active";
   }
 
+  function addtocart() {
+      var cartcontent = $("#added_items").text();
+      $("#added_items").html(((parseInt(cartcontent) + 1)));
+
+  }
+
 
   </script>
 
 
   <div id="London" class="tabcontent">
-    <h3>Walmart 2% Milk</h3>
-    <p>Half a gallon of the most delicious processed milk you will ever have!</p>
+    <h3>Orange Habaneros</h3>
+    <p>Nutritional Information: Orange peppers are sweeter than their red counterparts...</p>
+    <p class="price">$1.99</p>
+    <button class="addtocart" onclick= "addtocart()">Add to Cart</button>
   </div>
 
   <div id="Paris" class="tabcontent">
-    <h3>Walmart 2% Milk</h3>
-    <p>A Full Gallon for all your milk needs</p>
+    <h3>Red Habaneros</h3>
+    <p>Nutritional Information: Red peppers are hotter than their orange counterparts...</p>
+    <p class="price">$2.99</p>
+    <button class="addtocart" onclick= "addtocart()">Add to Cart</button>
   </div>
 
   <div id="Tokyo" class="tabcontent">
-    <h3>Dairy Pure 2%</h3>
-    <p>A Full Gallon jug of milk from a brand I have never heard of</p>
+    <h3>Red Chillies</h3>
+    <p>Nutritional Information: Red peppers are hotter than their green counterparts...</p>
+    <p class="price">$0.99</p>
+    <button class="addtocart" onclick= "addtocart()">Add to Cart</button>
+  </div>
+  <div id="MilkB" class="tabcontent">
+    <h3>Green Chillies</h3>
+    <p>Nutritional Information: Green peppers are usually the mildest color for hot peppers, they are also less smokey...</p>
+    <p class="price">$0.99</p>
+    <button class="addtocart" onclick= "addtocart()">Add to Cart</button>
   </div>
 
 

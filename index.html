@@ -75,14 +75,15 @@ input:focus {
 <input type="text" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
 
 <ul id="myUL" class="logos" style="display: none;">
-  <li class="selected"><a>Cereal</a></li>
-  <li><a>Cheese</a></li>
-  <li><a>Coffee</a></li>
-  <li><a>Cookies</a></li>
-  <li><a>Lettuce</a></li>
+  <li class="selected"><a>Apples</a></li>
+  <li><a>Cabbage</a></li>
+  <li><a>Cherries</a></li>
+  <li><a>Cucumbers</a></li>
+  <li><a>Grapes</a></li>
+  <li><a>Jalapeno Peppers</a></li>
   <li><a>Kale</a></li>
-  <li><a >Macaroni</a></li>
-  <li><a >Milk</a></li>
+  <li><a>Lettuce</a></li>
+  <li><a>Oranges</a></li>
 </ul>
 
 
@@ -113,7 +114,7 @@ function myFunction(e) {
     if (e.keyCode == 13) { // enter
         if ($(".logos").css('display') == "none") {
           localStorage.setItem("item", $("#myInput").val());
-          if ($("#myInput").val() == "red circular fruit") {
+          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
             window.location.href = "./browsing.html";
           } else {
             window.location.href = "./results-page.html";

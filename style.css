@@ -144,17 +144,40 @@ h2 {
   padding: 4px 0 0 0;
 }
 
-#gallery img {
+.image-card {
+  display: inline-block;
+  width: 214px;
+}
+
+#gallery .image-card img {
+  border: 1px solid black;
   margin: 8px;
   width: 214px;
   cursor: pointer;
   border-radius: 3px;
 }
 
-#gallery img:hover {
-  margin: 8px;
-  opacity: .8;
+.overlay-item {
+  opacity:0;
+  float: left;
+  position: relative;
+  top: -150px;
+  margin-left: 40px;
 }
+
+#gallery .image-card img:hover {
+  margin: 8px;
+  opacity: .2;
+}
+#gallery .image-card:hover img{
+  margin: 8px;
+  opacity: .2;
+}
+#gallery .image-card:hover .overlay-item {
+
+  opacity: 1.0;
+}
+
 
 header h1 {
   font-weight: 700;
@@ -186,4 +209,26 @@ button:hover{
 
 .apples:hover {
 
+}
+.product-card {
+  width:200px;
+  margin: 5px;
+  height: 25px;
+}
+.bottom-card{
+  display: inline-block;
+  background-color: gray;
+  opacity: 0.5;
+  width: auto;
+}
+
+.itemheader {
+  display: inline-block;
+  margin-left: 20px;
+  padding-top: 5px;
+  }
+.priceheader {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 5px;
 }

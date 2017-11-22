@@ -27,10 +27,6 @@
       });
 
   });
-   function codeAddress() {
-     $("#title").html((localStorage.getItem("item")));
-}
-window.onload = codeAddress;
   </script>
 
 </head>
@@ -41,14 +37,15 @@ window.onload = codeAddress;
   <input type="text" style = "display: inline-block; margin-left: 30px;" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
 
   <ul id="myUL" class="logos" style="display: none;">
-    <li class="selected"><a>Cereal</a></li>
-    <li><a>Cheese</a></li>
-    <li><a>Coffee</a></li>
-    <li><a>Cookies</a></li>
-    <li><a>Lettuce</a></li>
+    <li class="selected"><a>Apples</a></li>
+    <li><a>Cabbage</a></li>
+    <li><a>Cherries</a></li>
+    <li><a>Cucumbers</a></li>
+    <li><a>Grapes</a></li>
+    <li><a>Jalapeno Peppers</a></li>
     <li><a>Kale</a></li>
-    <li><a >Macaroni</a></li>
-    <li><a >Milk</a></li>
+    <li><a>Lettuce</a></li>
+    <li><a>Oranges</a></li>
   </ul>
 
 </div>
@@ -64,6 +61,9 @@ window.onload = codeAddress;
 
 
 <script>
+function results() {
+    window.location.href = "./results-page.html";
+}
 function myFunction(e) {
     e = e || window.event;
     var input, filter, ul, li, a, i;
@@ -88,7 +88,11 @@ function myFunction(e) {
     if (e.keyCode == 13) { // enter
         if ($(".logos").css('display') == "none") {
           localStorage.setItem("item", $("#myInput").val());
-          window.location.href = "./results-page.html";
+          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
+            window.location.href = "./browsing.html";
+          } else {
+            window.location.href = "./results-page.html";
+          }
         }
         else {
                selectOption();
@@ -130,88 +134,103 @@ function myFunction(e) {
 <div class="container">
   <div id="buttons"></div>
   <div id="gallery">
-    <img class="apples" data-tags="Red,Fruit,Circular" src="https://usercontent2.hubstatic.com/7148759_f520.jpg" alt="" />
-    <img data-tags="Red,Fruit,Circular" src="https://usercontent1.hubstatic.com/7190404_f520.jpg" alt="" />
-    <img data-tags="Red,Fruit,Circular" src="http://i.dailymail.co.uk/i/pix/2013/01/16/article-2263218-0CFDEE2100000578-103_306x346.jpg" alt="" />
-    <img data-tags="Red,Circular" src="http://l7.alamy.com/zooms/f91833776ed146389576a29860d98c2c/skittles-fruits-sweets-d43hk2.jpg" alt="" />
-    <img data-tags="Red,Fruit" src="https://i.ytimg.com/vi/f-8lxdQJtz0/maxresdefault.jpg" alt="" />
-    <img data-tags="Red,Fruit,Circular" src="http://www.tips2stayhealthy.com/wp-content/uploads/2015/03/apricots.jpg" alt="" />
-    <img data-tags="Red,Fruit" src="http://stylesatlife.com/wp-content/uploads/2014/03/raspberries.jpg" alt="" />
-    <img data-tags="Red,Fruit,Circular" src="https://farmviewmarket.com/wp-content/uploads/2017/08/apple.jpg" alt="" />
-    <img data-tags="Orange,Fruit,Circular" src="http://palmaworld.com/wp-content/uploads/2017/01/oranges-foto.jpg" alt="" />
+    <div class="image-card" data-tags="Red,Pepper,Spice,Medium">
+      <img name= "cayenne" data-tags="Red,Pepper,Spice,Medium" src="https://greenblender.com/smoothies/wp-content/uploads/2015/11/The-Benefits-Of-Cayenne-Pepper-by-Green-Blender-powder.jpg" alt="" />
+      <h1 class="overlay-item">Cayenne Peppers</h1>
+    </div>
+    <div class="image-card" data-tags="Green,Pepper,Large,Big,Mild">
+      <img name= "poblano" data-tags="Green,Pepper,Large,Big,Mild" src="https://cdn.plantbasedcooking.com/wp-content/uploads/2016/07/Poblanos.jpg" alt="" />
+      <h1 class="overlay-item">Poblano Peppers</h1>
+    </div>
+    <div class="image-card" data-tags="Red,Pepper,Small,Smooth,Thin,Hot,Spicy">
+      <img name = "serrano" data-tags="Red,Pepper,Small,Smooth,Thin,Hot,Spicy" src="https://cdn.shopify.com/s/files/1/0915/1060/products/serrano1.jpg?v=1478638959" alt="" />
+      <h1 style="top: -175px;"class="overlay-item">Serrano Peppers</h1>
+    </div>
+    <div class="image-card" data-tags="Green,Popular,Common,Smooth,Medium,Pepper">
+      <img name= "jalapeno" data-tags="Green,Popular,Common,Smooth,Medium,Pepper" src="https://bonnieplants.com/wp-content/uploads/mammoth-jalapeno-hot-pepper.jpg" alt="" />
+      <h1 style="top: -160px; margin-left: 25px;"class="overlay-item">Jalapenos</h1>
+    </div>
+    <div class="image-card" data-tags="Red,Pepper,Spice,Common,Spicy,Hot">
+      <img name = "chilli" data-tags="Red,Pepper,Spice,Common,Spicy,Hot" src="http://www.newsonwellness.com/wp-content/uploads/2014/08/chili-peppers.jpg" alt="" />
+      <h1 class="overlay-item">Chilli Peppers</h1>
+    </div>
+    <div onclick = "results()" class="image-card" data-tags="Orange,Pepper,Small,Shriveled,Hot">
+      <img name = "habanero" data-tags="Orange,Pepper,Small,Shriveled,Hot" src="http://www.ccsainc.com/wp-content/uploads/2017/02/habenaro.jpg" alt="" />
+      <h1 class="overlay-item">Habanero Peppers</h1>
+    </div>
+    <div class="image-card" data-tags="Orange,Pepper,Small,Shriveled,Hot,Sweet">
+      <img name = "scotch bonnet" data-tags="Orange,Pepper,Small,Shriveled,Hot,Sweet" src="https://1a1z1e22ozx83bgjsz17c6ba-wpengine.netdna-ssl.com/wp-content/uploads/Jamaican-Hot-Peppers.jpg" alt="" />
+      <h1 style="top: -190px;"class="overlay-item">Scotch Bonnet Peppers</h1>
+    </div>
+    <div class="image-card" data-tags="Orange,Mild,Popular,Common,Pepper" >
+      <img name= "bell peppers" data-tags="Orange,Mild,Popular,Common,Pepper" src="https://bonnieplants.com/wp-content/uploads/orange-bell-pepper.jpg" alt="" />
+      <h1 style="top: -175px;"class="overlay-item">Bell Peppers</h1>
+    </div>
+    <div class="image-card" data-tags="Orange,Hot,Spicy,Dangerous,Shriveled,Pepper">
+      <img name= "ghost peppers" data-tags="Orange,Hot,Spicy,Dangerous,Shriveled,Pepper" src="http://growhotpeppers.com/wp-content/uploads/2017/05/ghost-pepper-orange-1024x683.jpg" alt="" />
+      <h1 class="overlay-item">Ghost Peppers</h1>
+    </div>
   </div>
 </div>
 <script>
+
+
+
 (function() {
-  var $imgs = $('#gallery img');
+  var input = (localStorage.getItem("item"));
+  var $imgs = $('#gallery .image-card');
   var $buttons = $('#buttons');
   var tagged = {};
 
+
   $imgs.each(function() {
     var img = this;
-    var tags = $(this).data('tags');
-
-    if (tags) {
-      tags.split(',').forEach(function(tagName) {
-        if (tagged[tagName] == null) {
-          tagged[tagName] = [];
+    var tags = "";
+    var tags2 = $(this).data('tags');
+    tags2.split(',').forEach(function (tagName) {
+      if(input.toLowerCase().indexOf(tagName.toLowerCase()) >=0) {
+        if(tags == ""){
+          tags = tagName;
         }
-        tagged[tagName].push(img);
-      })
-    }
-  })
-
-  $('<button/>', {
-    text: 'Red and Circular and Fruit',
-    class: 'active',
-    click: function() {
-      $(this)
-        .addClass('active')
-        .siblings()
-        .removeClass('active');
-        $imgs
-          .hide()
-          .filter(tagged["Red"])
-          .filter(tagged["Circular"]).filter(tagged["Fruit"])
-          .show();
-    }
-  }).appendTo($buttons);
+        else {
+          tags = tags + "," + tagName;
+        }
+      }
+    })
+        if (tagged[tags] == null) {
+          tagged[tags] = [];
+        }
+        tagged[tags].push(img);
+        if (tags) {
+          tags.split(',').forEach(function(tagName) {
+              if (tagged[tagName] == null) {
+                tagged[tagName] = [];
+              }
+              tagged[tagName].push(img);
+            })
+          }
+    })
 
   $.each(tagged, function(tagName) {
-    var $n = $(tagged[tagName]).length;
-    $('<button/>', {
-      text: tagName + '(' + $n + ')',
-      click: function() {
-        $(this)
-          .addClass('active')
-          .siblings()
-          .removeClass('active');
-        $imgs
-          .hide()
-          .filter(tagged[tagName])
-          .show();
-      }
-    }).appendTo($buttons);
-  });
+      var $n = $(tagged[tagName]).length;
+      $('<button/>', {
+        text: tagName + '(' + $n + ')',
+        click: function() {
+          $(this)
+            .addClass('active')
+            .siblings()
+            .removeClass('active');
+          $imgs
+            .hide()
+            .filter(tagged[tagName])
+            .show();
+          }
+      }).appendTo($buttons);
+
+    });
+
 }())
 </script>
-
-
-</body>
-</html>
-
-
-
-
-
-
-  </script>
-
-
-
-
-
-
 
 
 </body>
