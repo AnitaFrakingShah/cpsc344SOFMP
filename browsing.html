@@ -34,9 +34,8 @@
 
   function codeAddress() {
     $("#itemcount").html(localStorage.getItem("itemcount2"));
+    $("#buttons").children('button')[0].click();
   }
-
-  window.onload = codeAddress;
 
   </script>
 
@@ -300,9 +299,6 @@ function myFunction(e) {
 
 }())
 
-function codeAddress() {
-  $("#buttons").children('button')[0].click();
-}
 window.onload = codeAddress;
 </script>
 
