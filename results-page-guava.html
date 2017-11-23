@@ -27,10 +27,12 @@
       });
 
   });
-         function codeAddress() {
-           $("#title").html((localStorage.getItem("item")));
-      }
-      window.onload = codeAddress;
+  function codeAddress() {
+    $("#title").html((localStorage.getItem("item")));
+    $("#itemcount").html(localStorage.getItem("itemcount2"));
+}
+
+window.onload = codeAddress;
       function sortslides() {
         window.location.href = "./results-page-sorted.html";
       }
@@ -62,7 +64,7 @@
 </div>
 
 <div id="header" style = "width: 150px; display: inline-block; margin-left: 100%; position: fixed; left: -120px; top: 5px; z-index: 1002;">
-    <p id="added_items" style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
+    <p id="itemcount" style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
     <img width="25px;" onclick="goto()" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
     <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
     <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
@@ -186,8 +188,10 @@ function myFunction(e) {
   }
 
   function addtocart() {
-      var cartcontent = $("#added_items").text();
-      $("#added_items").html(((parseInt(cartcontent) + 1)));
+      var cartcontent = $("#itemcount").text();
+      localStorage.setItem("itemcount2", (parseInt(cartcontent) + 1));
+      $("#itemcount").html(((parseInt(cartcontent) + 1)));
+
   }
 
 

@@ -31,6 +31,13 @@
   function goto() {
     window.location.href = "./checkout.html";
   }
+
+  function codeAddress() {
+    $("#itemcount").html(localStorage.getItem("itemcount2"));
+  }
+
+  window.onload = codeAddress;
+
   </script>
 
 </head>
@@ -55,7 +62,7 @@
 </div>
 
 <div id="header" style = "width: 150px; display: inline-block; margin-left: 100%; position: absolute; left: -120px; top: 5px;">
-    <p style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
+    <p id = "itemcount" style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
     <img width="25px;" onclick="goto()" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
     <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
     <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
@@ -196,19 +203,19 @@ function myFunction(e) {
     </div>
     <div class="image-card" data-tags="Green,Round,Fruit,Pear">
       <img name = "pears" src="http://cdnll.halegroves.com/images/xl/bartlett-pear-gifts-for-sale-online.jpg" alt="" />
-      <h1 style="top: -190px;"class="overlay-item">Pears</h1>
+      <h1 style="top: -120px;"class="overlay-item">Pears</h1>
     </div>
     <div class="image-card" data-tags="Green,Round,Circular,Fruit" >
       <img name= "grapes" src="http://www.sun-world.com/wp-content/uploads/2015/05/superior_category.jpg" alt="" />
-      <h1 style="top: -175px;"class="overlay-item">Green Grapes</h1>
+      <h1 style="top: -120px;"class="overlay-item">Green Grapes</h1>
     </div>
     <div onclick = "results2()" class="image-card" data-tags="Green,Round,Circular,Fruit,Sweet,Lime,Guava">
       <img name= "guava" src="http://servingjoy.com/wp-content/uploads/2015/04/Fun-Facts-of-Guavas.jpg" alt="" />
-      <h1 class="overlay-item">Guava</h1>
+      <h1 style="top: -130px;" class="overlay-item">Guava</h1>
     </div>
     <div class="image-card" data-tags="Green,Round,Circular,Fruit,Sweet">
       <img name= "apples" src="http://st1.thehealthsite.com/wp-content/uploads/2016/07/shutterstock_222581728-655x353.jpg" alt="" />
-      <h1 class="overlay-item">Green Apples</h1>
+      <h1 style="top: -120px;" class="overlay-item">Green Apples</h1>
     </div>
 
 
@@ -216,15 +223,15 @@ function myFunction(e) {
 
     <div class="image-card" data-tags="Green,Leafy,Veggie,Vegetable">
       <img name = "lettuce" src="https://juicing-for-health.com/wp-content/uploads/2012/06/romaine-lettuce1.jpg" alt="" />
-      <h1 class="overlay-item">Lettuce</h1>
+      <h1 style="top: -120px;"class="overlay-item">Lettuce</h1>
     </div>
     <div class="image-card" data-tags="Green,Leafy,Veggie,Vegetable">
       <img name = "spinach" src="https://www.abelandcole.co.uk/media/447_14498_z.jpg" alt="" />
-      <h1 style="top: -190px;"class="overlay-item">Spinach</h1>
+      <h1 style="top: -120px;"class="overlay-item">Spinach</h1>
     </div>
     <div class="image-card" data-tags="Green,Stick,Veggie,Vegetable,Hard" >
       <img name= "asparagus" src="http://brightcove.vo.llnwd.net/v1/unsecured/media/1033249144001/201512/1736/1033249144001_4652165666001_4609820823001-vs.jpg?pubId=1033249144001" alt="" />
-      <h1 style="top: -175px;"class="overlay-item">Asparagus</h1>
+      <h1 style="top: -125px;"class="overlay-item">Asparagus</h1>
     </div>
     <div onclick = "results3()" class="image-card" data-tags="Green,Leafy,Veggie,Vegetable,Sweet,Chinese">
       <img name= "yu choy" src="http://thewoksoflife.com/wp-content/uploads/2015/12/choy-sum-6.jpg" alt="" />
