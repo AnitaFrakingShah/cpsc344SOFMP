@@ -24,6 +24,8 @@
     border-top: none;
     width: 80%;
     margin-left: 10%;
+    margin-top: 25px;
+    margin-bottom: 100px;
 }
 
 
@@ -216,19 +218,18 @@ button:hover{
   height: 25px;
 }
 .bottom-card{
-  display: inline-block;
-  background-color: gray;
-  opacity: 0.5;
+  display: block;
+  background-color: #9ce79c;
+  opacity: 1;
   width: auto;
+  margin-bottom: 25px;
 }
 
 .itemheader {
-  display: inline-block;
-  margin-left: 20px;
-  padding-top: 5px;
+  text-align: center;
+  opacity: 1.5;
   }
 .priceheader {
-  display: inline-block;
-  margin-left: 70px;
-  padding-top: 5px;
+  text-align: center;
+  opacity: 1.5;
 }

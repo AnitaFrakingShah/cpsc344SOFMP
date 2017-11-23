@@ -92,12 +92,12 @@ input:focus {
 
 function myFunction(e) {
     e = e || window.event;
-    var input, filter, ul, li, a, i;
+    var input, filter, ul, li, a, i, count;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
     li = ul.getElementsByTagName("li");
-
+    count = 0;
 
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
@@ -108,9 +108,14 @@ function myFunction(e) {
             li[i].style.display = "";
         } else {
             li[i].style.display = "none";
-
+            count++;
         }
     }
+
+    if(count == li.length) {
+      ul.style.display = "none";
+    }
+
     if (e.keyCode == 13) { // enter
         if ($(".logos").css('display') == "none") {
           localStorage.setItem("item", $("#myInput").val());
