@@ -160,21 +160,21 @@ function myFunction(e) {
               <p class="priceheader">$1.00</p>
             </div>
           </div>
-          <div class ="tab product-card" data-percentage="1.50" attributeid="chillies">
+          <div class ="tab product-card hab" data-percentage="1.50" attributeid="chillies">
 						<img class="tablinks" onclick="openCity(event, 'Tokyo')" style="width:100px; height:200px" src="http://gephardtdaily.com/wp-content/uploads/2015/08/Hot-Peppers-01.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Red Chillies</p>
               <p class="priceheader">$1.50</p>
             </div>
           </div>
-					<div class ="tab product-card" data-percentage="1.99" attributeid="hab">
+					<div class ="tab product-card hab" data-percentage="1.99" attributeid="hab">
 						<img class="tablinks" onclick="openCity(event, 'Paris')" style="width:150px; height:200px" src="https://images-na.ssl-images-amazon.com/images/I/41zTACiFSAL._SY355_.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Red Habanero</p>
               <p class="priceheader">$1.99</p>
             </div>
           </div>
-					<div data-percentage="2.50" attributeid="chillies">
+					<div data-percentage="2.50" class="hab">
 						<img class="tablinks" onclick="openCity(event, 'MilkB')"style="width:130px; height:200px" src="https://4.imimg.com/data4/AC/SY/MY-31565862/green-chilli--250x250.jpg" alt="" />
             <div class="bottom-card" style="position: relative; top: 5px;">
               <p class="itemheader">Green Chillies</p>
@@ -232,34 +232,8 @@ function myFunction(e) {
   <script>
   function changeslide2() {
     $('.responsive').slick('slickUnfilter');
-    $('.responsive').slick('slickFilter', function(){
-                   return $(this).attr('attributeid') == "chillies"
-                });
-              }
-function changeslide() {
-    $('.responsive').slick('slickUnfilter');
-    $('.responsive').slick('slickFilter', function(){
-               return $(this).attr('attributeid') == "hab"
-            });
-          }
-function changeslide3() {
-    $('.responsive').slick('slickUnfilter');
-    $('.responsive').slick('slickFilter', function(){
-                   return $(this).attr('attributeid') == "jal"
-                });
-              }
-function changeslide4() {
-    $('.responsive').slick('slickUnfilter');
-    $('.responsive').slick('slickFilter', function(){
-                   return $(this).attr('attributeid') == "scotch"
-                });
-              }
-function changeslide5() {
-    $('.responsive').slick('slickUnfilter');
-    $('.responsive').slick('slickFilter', function(){
-                   return $(this).attr('attributeid') == "bell"
-                });
-              }
+    $('.responsive').slick('slickFilter', ".hab").slick('refresh');
+    }
 
   $('.responsive').slick({
     dots: false,
