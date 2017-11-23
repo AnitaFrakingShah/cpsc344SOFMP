@@ -153,56 +153,56 @@ function myFunction(e) {
       </div>
          <!-- Slider -->
         <div class="slider responsive">
-          <div class ="tab product-card" data-percentage="1.00" attributeid="bell">
+          <div class ="bell" data-percentage="1.00" attributeid="bell" style="width:200px; margin: 5px;">
 						<img class="tablinks" onclick="openCity(event, 'redbell')" style="width:160px; height:200px" src="https://www.motherearthnews.com/-/media/Images/MEN/Editorial/Articles/Magazine-Articles/2002/08-01/Preserving-Red-Bell-Peppers-for-Winter/sweet-red-winter-peppers-jpg.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Red Bell</p>
               <p class="priceheader">$1.00</p>
             </div>
           </div>
-          <div class ="tab product-card hab" data-percentage="1.50" attributeid="chillies">
+          <div class ="chillies" data-percentage="1.50" attributeid="chillies" style="width:200px; margin: 5px;">
 						<img class="tablinks" onclick="openCity(event, 'Tokyo')" style="width:100px; height:200px" src="http://gephardtdaily.com/wp-content/uploads/2015/08/Hot-Peppers-01.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Red Chillies</p>
               <p class="priceheader">$1.50</p>
             </div>
           </div>
-					<div class ="tab product-card hab" data-percentage="1.99" attributeid="hab">
+					<div class ="hab" data-percentage="1.99" attributeid="hab" style="width:200px; margin: 5px;">
 						<img class="tablinks" onclick="openCity(event, 'Paris')" style="width:150px; height:200px" src="https://images-na.ssl-images-amazon.com/images/I/41zTACiFSAL._SY355_.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Red Habanero</p>
               <p class="priceheader">$1.99</p>
             </div>
           </div>
-					<div data-percentage="2.50" class="hab">
+					<div data-percentage="2.50" class="chillies" style="width:200px; margin: 5px;">
 						<img class="tablinks" onclick="openCity(event, 'MilkB')"style="width:130px; height:200px" src="https://4.imimg.com/data4/AC/SY/MY-31565862/green-chilli--250x250.jpg" alt="" />
-            <div class="bottom-card" style="position: relative; top: 5px;">
+            <div class="bottom-card">
               <p class="itemheader">Green Chillies</p>
               <p class="priceheader">$2.50</p>
             </div>
           </div>
-          <div class ="tab product-card" data-percentage="2.50" attributeid="bell">
+          <div class="bell" data-percentage="2.50" attributeid="bell" style="width:200px; margin: 5px;">
 						<img class="tablinks" onclick="openCity(event, 'orangebell')" style="width:155px; height:200px" src="https://durablehealth.net/wp-content/uploads/2014/07/Orange-Bell-Pepper-Nutrition-Facts-Health-Benefits-Recipes-pick.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Orange Bell</p>
               <p class="priceheader">$2.50</p>
             </div>
           </div>
-          <div class ="tab product-card" data-percentage="2.99" attributeid="hab">
+          <div class="hab" data-percentage="2.99" attributeid="hab" style="width:200px; margin: 5px;">
             <img class="tablinks" onclick="openCity(event, 'London')" style="width:200px; height:200px" src="http://www.fruitionseeds.com//v/vspfiles/photos/TRANS-36-2T.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Orange Habanero</p>
               <p class="priceheader">$2.99</p>
             </div>
           </div>
-          <div class ="tab product-card" data-percentage="7.50" attributeid="jal">
+          <div class="jal" data-percentage="7.50" attributeid="jal" style="width:200px; margin: 5px;">
 						<img class="tablinks" onclick="openCity(event, 'jalapeno')" style="width:120px; height:200px" src="http://img-aws.ehowcdn.com/350x235p/photos.demandstudios.com/getty/article/117/208/87714824_XS.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Jalapenos</p>
               <p class="priceheader">$7.50</p>
             </div>
           </div>
-					<div class ="tab product-card" data-percentage="8.50" attributeid="scotch">
+					<div class="scotch" data-percentage="8.50" attributeid="scotch" style="width:200px; margin: 5px;">
 						<img class="tablinks" onclick="openCity(event, 'scotch')" style="width:125px; height:200px" src="https://www.chilliwizards.co.uk/ekmps/shops/markdean/images/scotch-bonnet-red-10-x-seeds-1303-p.jpg" alt="" />
             <div class="bottom-card">
               <p class="itemheader">Organic Scotch Bonnet</p>
@@ -227,13 +227,34 @@ function myFunction(e) {
       <button onclick="changeslide4()" id="test">Scotch Bonnet</button>
       <button onclick="changeslide3()" id="test">Jalapeno</button>
       <button onclick="changeslide5()" id="test">Bell</button>
+      <button onclick="changeslide6()" id="test">Show All</button>
   </div>
 
   <script>
   function changeslide2() {
     $('.responsive').slick('slickUnfilter');
-    $('.responsive').slick('slickFilter', ".hab").slick('refresh');
+    $('.responsive').slick('slickFilter', ".chillies");
     }
+
+    function changeslide() {
+      $('.responsive').slick('slickUnfilter');
+      $('.responsive').slick('slickFilter', ".hab");
+      }
+      function changeslide3() {
+        $('.responsive').slick('slickUnfilter');
+        $('.responsive').slick('slickFilter', ".jal");
+        }
+        function changeslide4() {
+          $('.responsive').slick('slickUnfilter');
+          $('.responsive').slick('slickFilter', ".scotch");
+          }
+          function changeslide5() {
+            $('.responsive').slick('slickUnfilter');
+            $('.responsive').slick('slickFilter', ".bell");
+            }
+            function changeslide6() {
+              $('.responsive').slick('slickUnfilter');
+              }
 
   $('.responsive').slick({
     dots: false,
