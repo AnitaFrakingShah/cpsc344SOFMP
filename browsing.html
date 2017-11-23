@@ -27,6 +27,10 @@
       });
 
   });
+
+  function goto() {
+    window.location.href = "./checkout.html";
+  }
   </script>
 
 </head>
@@ -52,7 +56,7 @@
 
 <div id="header" style = "width: 150px; display: inline-block; margin-left: 100%; position: absolute; left: -120px; top: 5px;">
     <p style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
-    <img width="25px;" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
+    <img width="25px;" onclick="goto()" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
     <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
     <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
     <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/user"/>
@@ -63,6 +67,15 @@
 <script>
 function results() {
     window.location.href = "./results-page.html";
+    localStorage.setItem("item", "Peppers (Habaneros First)");
+}
+function results2() {
+    window.location.href = "./results-page-guava.html";
+    localStorage.setItem("item", "Guavas");
+}
+function results3() {
+    window.location.href = "./results-page-yu.html";
+    localStorage.setItem("item", "Yu Choy");
 }
 function myFunction(e) {
     e = e || window.event;
@@ -139,7 +152,7 @@ function myFunction(e) {
 <div class="container">
   <div id="buttons"></div>
   <div id="gallery">
-    <div class="image-card" data-tags="Red,Pepper,Spice,Medium">
+    <div class="image-card" data-tags="Red,Pepper,Medium,Spice">
       <img name= "cayenne" data-tags="Red,Pepper,Spice,Medium" src="https://greenblender.com/smoothies/wp-content/uploads/2015/11/The-Benefits-Of-Cayenne-Pepper-by-Green-Blender-powder.jpg" alt="" />
       <h1 class="overlay-item">Cayenne Peppers</h1>
     </div>
@@ -151,11 +164,11 @@ function myFunction(e) {
       <img name = "serrano" data-tags="Red,Pepper,Small,Smooth,Thin,Hot,Spicy" src="https://cdn.shopify.com/s/files/1/0915/1060/products/serrano1.jpg?v=1478638959" alt="" />
       <h1 style="top: -175px;"class="overlay-item">Serrano Peppers</h1>
     </div>
-    <div class="image-card" data-tags="Green,Popular,Common,Smooth,Medium,Pepper">
+    <div class="image-card" data-tags="Green,Pepper,Medium,Smooth,Popular,Common,Hot">
       <img name= "jalapeno" data-tags="Green,Popular,Common,Smooth,Medium,Pepper" src="https://bonnieplants.com/wp-content/uploads/mammoth-jalapeno-hot-pepper.jpg" alt="" />
       <h1 style="top: -160px; margin-left: 25px;"class="overlay-item">Jalapenos</h1>
     </div>
-    <div class="image-card" data-tags="Red,Pepper,Spice,Common,Spicy,Hot">
+    <div class="image-card" data-tags="Red,Pepper,Spice,Common,Hot,Spicy">
       <img name = "chilli" data-tags="Red,Pepper,Spice,Common,Spicy,Hot" src="http://www.newsonwellness.com/wp-content/uploads/2014/08/chili-peppers.jpg" alt="" />
       <h1 class="overlay-item">Chilli Peppers</h1>
     </div>
@@ -167,13 +180,55 @@ function myFunction(e) {
       <img name = "scotch bonnet" data-tags="Orange,Pepper,Small,Shriveled,Hot,Sweet" src="https://1a1z1e22ozx83bgjsz17c6ba-wpengine.netdna-ssl.com/wp-content/uploads/Jamaican-Hot-Peppers.jpg" alt="" />
       <h1 style="top: -190px;"class="overlay-item">Scotch Bonnet Peppers</h1>
     </div>
-    <div class="image-card" data-tags="Orange,Mild,Popular,Common,Pepper" >
+    <div class="image-card" data-tags="Orange,Pepper,Popular,Common,Mild" >
       <img name= "bell peppers" data-tags="Orange,Mild,Popular,Common,Pepper" src="https://bonnieplants.com/wp-content/uploads/orange-bell-pepper.jpg" alt="" />
       <h1 style="top: -175px;"class="overlay-item">Bell Peppers</h1>
     </div>
-    <div class="image-card" data-tags="Orange,Hot,Spicy,Dangerous,Shriveled,Pepper">
+    <div class="image-card" data-tags="Orange,Pepper,Shriveled,Hot,Spicy,Dangerous">
       <img name= "ghost peppers" data-tags="Orange,Hot,Spicy,Dangerous,Shriveled,Pepper" src="http://growhotpeppers.com/wp-content/uploads/2017/05/ghost-pepper-orange-1024x683.jpg" alt="" />
       <h1 class="overlay-item">Ghost Peppers</h1>
+    </div>
+
+
+    <div class="image-card" data-tags="Green,Round,Circular,Fruit,Tart,Lime,Guava">
+      <img name = "limes" src="http://media.fromthegrapevine.com/assets/images/2015/8/key-limes-for-cupcakes.jpg" alt="" />
+      <h1 class="overlay-item">Limes</h1>
+    </div>
+    <div class="image-card" data-tags="Green,Round,Fruit,Pear">
+      <img name = "pears" src="http://cdnll.halegroves.com/images/xl/bartlett-pear-gifts-for-sale-online.jpg" alt="" />
+      <h1 style="top: -190px;"class="overlay-item">Pears</h1>
+    </div>
+    <div class="image-card" data-tags="Green,Round,Circular,Fruit" >
+      <img name= "grapes" src="http://www.sun-world.com/wp-content/uploads/2015/05/superior_category.jpg" alt="" />
+      <h1 style="top: -175px;"class="overlay-item">Green Grapes</h1>
+    </div>
+    <div onclick = "results2()" class="image-card" data-tags="Green,Round,Circular,Fruit,Sweet,Lime,Guava">
+      <img name= "guava" src="http://servingjoy.com/wp-content/uploads/2015/04/Fun-Facts-of-Guavas.jpg" alt="" />
+      <h1 class="overlay-item">Guava</h1>
+    </div>
+    <div class="image-card" data-tags="Green,Round,Circular,Fruit,Sweet">
+      <img name= "apples" src="http://st1.thehealthsite.com/wp-content/uploads/2016/07/shutterstock_222581728-655x353.jpg" alt="" />
+      <h1 class="overlay-item">Green Apples</h1>
+    </div>
+
+
+
+
+    <div class="image-card" data-tags="Green,Leafy,Veggie,Vegetable">
+      <img name = "lettuce" src="https://juicing-for-health.com/wp-content/uploads/2012/06/romaine-lettuce1.jpg" alt="" />
+      <h1 class="overlay-item">Lettuce</h1>
+    </div>
+    <div class="image-card" data-tags="Green,Leafy,Veggie,Vegetable">
+      <img name = "spinach" src="https://www.abelandcole.co.uk/media/447_14498_z.jpg" alt="" />
+      <h1 style="top: -190px;"class="overlay-item">Spinach</h1>
+    </div>
+    <div class="image-card" data-tags="Green,Stick,Veggie,Vegetable,Hard" >
+      <img name= "asparagus" src="http://brightcove.vo.llnwd.net/v1/unsecured/media/1033249144001/201512/1736/1033249144001_4652165666001_4609820823001-vs.jpg?pubId=1033249144001" alt="" />
+      <h1 style="top: -175px;"class="overlay-item">Asparagus</h1>
+    </div>
+    <div onclick = "results3()" class="image-card" data-tags="Green,Leafy,Veggie,Vegetable,Sweet,Chinese">
+      <img name= "yu choy" src="http://thewoksoflife.com/wp-content/uploads/2015/12/choy-sum-6.jpg" alt="" />
+      <h1 class="overlay-item">Yu Choy</h1>
     </div>
   </div>
 </div>
@@ -202,13 +257,15 @@ function myFunction(e) {
         }
       }
     })
+    if (tags != "") {
         if (tagged[tags] == null) {
           tagged[tags] = [];
         }
         tagged[tags].push(img);
-        if (tags) {
+    }
+        if (tags && tags != null) {
           tags.split(',').forEach(function(tagName) {
-              if (tagged[tagName] == null) {
+              if (tagged[tagName] == null && tagName != "") {
                 tagged[tagName] = [];
               }
               tagged[tagName].push(img);
@@ -235,6 +292,11 @@ function myFunction(e) {
     });
 
 }())
+
+function codeAddress() {
+  $("#buttons").children('button')[0].click();
+}
+window.onload = codeAddress;
 </script>
 
 

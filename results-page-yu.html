@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.css" >
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="./style.css" >
+
+  <script>
+  $(document).ready(function(){
+
+      $('.logos').hide();
+
+      $('.focus').focus(function(){
+          myFunction();
+      });
+
+      $("body").click(function(e){
+        if (e.target.id == 'myUL') {
+        }
+        else{
+          $('.logos').hide();
+        }
+      });
+
+  });
+
+  function goto() {
+    window.location.href = "./checkout.html";
+  }
+         function codeAddress() {
+           $("#title").html((localStorage.getItem("item")));
+      }
+      window.onload = codeAddress;
+      function sortslides() {
+        window.location.href = "./results-page-sorted.html";
+      }
+  </script>
+
+</head>
+<body>
+<div id="header" style = "width: 100%; display: inline-block; position: fixed; z-index: 1000; background-color: white;">
+  <a href="./index.html"><h2 style="color: #6BBE19; display: inline-block; font-size: 24px; margin-left: 15px; font-family: Trebuchet MS; ">SAVE ON FOODS</h2></a>
+
+  <input type="text" style = "display: inline-block; margin-left: 30px;" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
+
+  <ul id="myUL" class="logos" style="display: none;">
+    <li class="selected"><a>Apples</a></li>
+    <li><a>Cabbage</a></li>
+    <li><a>Cherries</a></li>
+    <li><a>Cucumbers</a></li>
+    <li><a>Grapes</a></li>
+    <li><a>Jalapeno Peppers</a></li>
+    <li><a>Kale</a></li>
+    <li><a>Lettuce</a></li>
+    <li><a>Raspberries</a></li>
+  </ul>
+
+</div>
+
+<div id="header" style = "width: 150px; display: inline-block; margin-left: 100%; position: fixed; left: -120px; top: 5px; z-index: 1002;">
+    <p id="added_items" style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
+    <img onclick="goto()" width="25px;" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
+    <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
+    <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
+    <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/user"/>
+
+</div>
+
+
+<script>
+function myFunction(e) {
+    e = e || window.event;
+    var input, filter, ul, li, a, i, count;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    count = 0;
+
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) == 0) {
+        	if (filter != "" && e.keyCode != 13) {
+            	ul.style.display = "";
+            }
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+            count++;
+        }
+    }
+
+    if(count == li.length) {
+      ul.style.display = "none";
+    }
+
+    if (e.keyCode == 13) { // enter
+        if ($(".logos").css('display') == "none") {
+          localStorage.setItem("item", $("#myInput").val());
+          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
+            window.location.href = "./browsing.html";
+          } else {
+            window.location.href = "./results-page.html";
+          }
+        }
+        else {
+               selectOption();
+           }
+         }
+
+    if (e.keyCode == 38) { // up
+          var selected = $(".selected");
+          $(".logos li").removeClass("selected");
+        if (selected.prev().length == 0) {
+            selected.siblings().last().addClass("selected");
+        } else {
+            selected.prev().addClass("selected");
+        }
+    }
+    if (e.keyCode == 40) { // down
+       var selected = $(".selected");
+       $(".logos li").removeClass("selected");
+       if (selected.next().length == 0) {
+           selected.siblings().first().addClass("selected");
+       } else {
+           selected.next().addClass("selected");
+       }
+   }
+
+   $(".logos li").mouseover(function() {
+    $(".logos li").removeClass("selected");
+    $(this).addClass("selected");
+}).click(function() {
+    selectOption();
+    $('.focus').focus();
+});
+   function selectOption() {
+    $("#myInput").val($(".selected a").text());
+    $(".logos").hide();
+}
+}
+</script>
+
+
+<div class="container">
+  <h2 id="title" style="position: relative; top: 75px;"></h2>
+
+
+    <div class="row">
+      <div class="col-md-12 heroSlider-fixed">
+        <div class="overlay">
+      </div>
+         <!-- Slider -->
+        <div class="slider responsive">
+          <div class ="tab product-card" data-percentage="2.99">
+						<img class="tablinks" onclick="openCity(event, 'Guava')" style="width:200px; height:200px" src="http://thewoksoflife.com/wp-content/uploads/2015/12/choy-sum-6.jpg" alt="" />
+            <div class="bottom-card">
+              <p class="itemheader">Organic Yu Choy</p>
+              <p class="priceheader">$2.99</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+  function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+
+  function addtocart() {
+      var cartcontent = $("#added_items").text();
+      $("#added_items").html(((parseInt(cartcontent) + 1)));
+  }
+
+
+
+
+  </script>
+
+
+  <div id="Guava" class="tabcontent" style="position: relative; top: 300px;">
+    <h3>Organic Yu Choy</h3>
+    <p>This is a sweet leafy green vegetable often used in Chinese dishes...</p>
+    <p class="price">$2.99</p>
+    <button class="addtocart" onclick= "addtocart()">Add to Cart</button>
+  </div>
+
+
+
+
+
+</body>
+</html>

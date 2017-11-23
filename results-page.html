@@ -27,14 +27,17 @@
       });
 
   });
-   function codeAddress() {
-     $("#title").html((localStorage.getItem("item")));
-}
+         function codeAddress() {
+           $("#title").html((localStorage.getItem("item")));
+      }
+      window.onload = codeAddress;
+      function sortslides() {
+        window.location.href = "./results-page-sorted.html";
+      }
 
-function sortslides() {
-  window.location.href = "./results-page-sorted.html";
-}
-window.onload = codeAddress;
+      function goto() {
+        window.location.href = "./checkout.html";
+      }
   </script>
 
 </head>
@@ -60,7 +63,7 @@ window.onload = codeAddress;
 
 <div id="header" style = "width: 150px; display: inline-block; margin-left: 100%; position: fixed; left: -120px; top: 5px; z-index: 1002;">
     <p id="added_items" style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
-    <img width="25px;" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
+    <img width="25px;" onclick="goto()" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
     <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
     <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
     <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/user"/>
@@ -144,7 +147,7 @@ function myFunction(e) {
 
 
 <div class="container">
-  <h2 id="title"></h2>
+  <h2 id="title" style="position: relative; top: 75px;"></h2>
   <div class="filters" style="margin-left: 15%; display: inline-block;">
       <h3>Sort:</h3>
       <button onclick="sortslides()" id="test">By Price: Low to Max</button>

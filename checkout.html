@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.css" >
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="./style.css" >
+
+  <script>
+  $(document).ready(function(){
+
+      $('.logos').hide();
+
+      $('.focus').focus(function(){
+          myFunction();
+      });
+
+      $("body").click(function(e){
+        if (e.target.id == 'myUL') {
+        }
+        else{
+          $('.logos').hide();
+        }
+      });
+
+  });
+         function codeAddress() {
+           $("#title").html((localStorage.getItem("item")));
+      }
+      window.onload = codeAddress;
+      function sortslides() {
+        window.location.href = "./results-page-sorted.html";
+      }
+  </script>
+
+</head>
+<body>
+<div id="header" style = "width: 100%; display: inline-block; position: fixed; z-index: 1000; background-color: white;">
+  <a href="./index.html"><h2 style="color: #6BBE19; display: inline-block; font-size: 24px; margin-left: 15px; font-family: Trebuchet MS; ">SAVE ON FOODS</h2></a>
+
+  <input type="text" style = "display: inline-block; margin-left: 30px;" class="focus" id="myInput" onkeyup="myFunction()" placeholder="Search for items..." title="Type in a name">
+
+  <ul id="myUL" class="logos" style="display: none;">
+    <li class="selected"><a>Apples</a></li>
+    <li><a>Cabbage</a></li>
+    <li><a>Cherries</a></li>
+    <li><a>Cucumbers</a></li>
+    <li><a>Grapes</a></li>
+    <li><a>Jalapeno Peppers</a></li>
+    <li><a>Kale</a></li>
+    <li><a>Lettuce</a></li>
+    <li><a>Raspberries</a></li>
+  </ul>
+
+</div>
+
+<div id="header" style = "width: 150px; display: inline-block; margin-left: 100%; position: fixed; left: -120px; top: 5px; z-index: 1002;">
+    <p id="added_items" style = "font-family: futura; font-style: bold; width: 15px; height: 16px; overflow: hidden; background-color: #C1F0C1; border-radius: 50%; color: #666666; padding-bottom: 1px; padding-left: 4px; margin: 0px; font-size: 12px; position: relative; top: 28px; left: 12px;">0</p>
+    <img width="25px;" src="http://trstech.ca/wp-content/uploads/2016/03/E-Commerce-Icon.png"/>
+    <img width="25px;" src="https://nelioabtesting.com/wp-content/uploads/2015/05/4.1_menu-type.png"/>
+    <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/notification"/>
+    <img width="25px;" src="https://png.icons8.com/android/1600/8BC34A/user"/>
+
+</div>
+
+
+<script>
+function myFunction(e) {
+    e = e || window.event;
+    var input, filter, ul, li, a, i, count;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    count = 0;
+
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) == 0) {
+        	if (filter != "" && e.keyCode != 13) {
+            	ul.style.display = "";
+            }
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+            count++;
+        }
+    }
+
+    if(count == li.length) {
+      ul.style.display = "none";
+    }
+
+    if (e.keyCode == 13) { // enter
+        if ($(".logos").css('display') == "none") {
+          localStorage.setItem("item", $("#myInput").val());
+          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
+            window.location.href = "./browsing.html";
+          } else {
+            window.location.href = "./results-page.html";
+          }
+        }
+        else {
+               selectOption();
+           }
+         }
+
+    if (e.keyCode == 38) { // up
+          var selected = $(".selected");
+          $(".logos li").removeClass("selected");
+        if (selected.prev().length == 0) {
+            selected.siblings().last().addClass("selected");
+        } else {
+            selected.prev().addClass("selected");
+        }
+    }
+    if (e.keyCode == 40) { // down
+       var selected = $(".selected");
+       $(".logos li").removeClass("selected");
+       if (selected.next().length == 0) {
+           selected.siblings().first().addClass("selected");
+       } else {
+           selected.next().addClass("selected");
+       }
+   }
+
+   $(".logos li").mouseover(function() {
+    $(".logos li").removeClass("selected");
+    $(this).addClass("selected");
+}).click(function() {
+    selectOption();
+    $('.focus').focus();
+});
+   function selectOption() {
+    $("#myInput").val($(".selected a").text());
+    $(".logos").hide();
+}
+}
+
+function goto() {
+  alert("You are done. Thank you!")
+  window.location.href = "./index.html";
+}
+</script>
+
+
+<div class="checkout" style="margin-left:40%; position: relative; top: 350px;">
+  <button onclick= "goto()">Proceed To Checkout</button>
+</div>
+
+
+</body>
+</html>
