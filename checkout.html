@@ -95,12 +95,32 @@ function myFunction(e) {
     if (e.keyCode == 13) { // enter
         if ($(".logos").css('display') == "none") {
           localStorage.setItem("item", $("#myInput").val());
-          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
-            window.location.href = "./browsing.html";
-          } else {
-            window.location.href = "./results-page.html";
+          if($("#myInput").val().toLowerCase() == "guava"){
+            window.location.href = "./results-page-guava.html";
           }
+          else if($("#myInput").val().toLowerCase() == "yu choy" || $("#myInput").val().toLowerCase() == "yu-choy"){
+            window.location.href = "./results-page-yu.html";
+          }
+          else if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
+            window.location.href = "./browsing.html";
+          }
+          else if ($("#myInput").val() != "") {
+            var count = 0;
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) == 0) {
+                	 window.location.href = "./results-page.html";
+                }
+                else {
+                  count++;
+                }
+              }
+          if(count == li.length) {
+            window.location.href = "./browsing.html";
+          }
+
         }
+      }
         else {
                selectOption();
            }
