@@ -103,9 +103,16 @@ function myFunction(e) {
     if (e.keyCode == 13) { // enter
         if ($(".logos").css('display') == "none") {
           localStorage.setItem("item", $("#myInput").val());
-          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
+          if($("#myInput").val().toLowerCase() == "guava"){
+            window.location.href = "./results-page-guava.html";
+          }
+          else if($("#myInput").val().toLowerCase() == "yu choy"){
+            window.location.href = "./results-page-yu.html";
+          }
+          else if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
             window.location.href = "./browsing.html";
-          } else {
+          }
+          else {
             window.location.href = "./results-page.html";
           }
         }
