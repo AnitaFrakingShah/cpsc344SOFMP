@@ -141,11 +141,13 @@ function myFunction(e) {
           if($("#myInput").val().toLowerCase() == "yu choy"){
             window.location.href = "./results-page-yu.html";
           }
-          if ($("#myInput").val().indexOf(' ') >= 0 && $("#myInput").val() != "Jalapeno Peppers") {
-            window.location.href = "./browsing.html";
-          } else {
-            window.location.href = "./results-page.html";
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if ($("#myInput").val().indexOf(a.innerHTML.toLowerCase()) == 0) {
+              window.location.href = "./results-page.html";
+            }
           }
+          window.location.href = "./browsing.html";
         }
         else {
                selectOption();
